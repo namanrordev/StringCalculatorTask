@@ -49,5 +49,17 @@ describe StringCalculator do
         expect(StringCalculator.add("//[***]\n1***2***3")).to eq(6)
       end
     end
+
+    context "given string with multiple delimiters (//[*][%]\n1*2%3)" do
+      it "returns 6" do
+        expect(StringCalculator.add("//[*][%]\n1*2%3")).to eq(6)
+      end
+    end
+
+    context "given string with multiple delimiters of any length (//[***][&&&][$$$]\n1***2&&&3***4$$$5)" do
+      it "returns 15" do
+        expect(StringCalculator.add("//[***][&&&][$$$]\n1***2&&&3***4$$$5")).to eq(15)
+      end
+    end
   end
 end
