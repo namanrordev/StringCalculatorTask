@@ -17,7 +17,14 @@ class StringCalculator
       string_arr = string.split(/\n|\,/)
     end
 
-    # Change array of string to array of int and then sum
-    string_arr.map(&:to_i).sum
+    negative_numbers = string_arr.select { |num| num.to_i.negative? }.join(',')
+    unless negative_numbers.empty?
+      # Return with exception message if there are negative numbers
+
+      "negative numbers not allowed #{negative_numbers}"
+    else
+      # Change array of string to array of int and then sum
+      string_arr.map(&:to_i).sum
+    end
   end
 end
