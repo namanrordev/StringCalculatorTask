@@ -19,5 +19,17 @@ describe StringCalculator do
         expect(StringCalculator.add("3,7,5")).to eq(15)
       end
     end
+
+    context "given 1,2,3,4,5\n7,89,1,90.200\n100,400,31\n3" do
+      it "returns 936" do
+        expect(StringCalculator.add("1,2,3,4,5,7,89,1,90,200,200,300,34")).to eq(936)
+      end
+    end
+
+    context "given new lines between numbers (1\n2,3)" do
+      it "returns 6" do
+        expect(StringCalculator.add("1\n2,3")).to eq(6)
+      end
+    end
   end
 end
