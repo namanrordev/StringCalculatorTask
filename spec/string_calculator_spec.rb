@@ -31,5 +31,17 @@ describe StringCalculator do
         expect(StringCalculator.add("1\n2,3")).to eq(6)
       end
     end
+
+    context "given string with delimiter (//;\n1;2)" do
+      it "returns 3" do
+        expect(StringCalculator.add("//;\n1;2")).to eq(3)
+      end
+    end
+
+    context "given string with delimiter (//:\n3:6:9)" do
+      it "returns 3" do
+        expect(StringCalculator.add("//:\n3:6:9")).to eq(18)
+      end
+    end
   end
 end
