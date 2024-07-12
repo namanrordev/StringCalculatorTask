@@ -43,5 +43,11 @@ describe StringCalculator do
         expect(StringCalculator.add("//:\n3:6:9")).to eq(18)
       end
     end
+
+    context "given string with delimiter of any length (“//[***]\n1***2***3”)" do
+      it "returns 6" do
+        expect(StringCalculator.add("//[***]\n1***2***3")).to eq(6)
+      end
+    end
   end
 end

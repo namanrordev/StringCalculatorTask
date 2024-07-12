@@ -1,11 +1,11 @@
 class StringCalculator
 
   def self.add(string)
-    # Get delimteter from string
-    delimeter = string.split("//").last.split.first if string.start_with?("//")
+    # Get delimiter from string
+    delimiter = string.split("//").last.split("\n").first.gsub(/\[|\]/, '') if string.start_with?("//")
 
-    if delimeter
-      string_arr = string.split("#{delimeter}\n").last.split("#{delimeter}")
+    if delimiter
+      string_arr = string.split("\n").last.split("#{delimiter}")
     else
       string_arr = string.split(/\n|\,/)
     end
